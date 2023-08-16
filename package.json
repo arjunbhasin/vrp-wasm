@@ -19,7 +19,7 @@
       },
       "./binary.wasm": {
         "browser": "./pkg/browser/vrp_cli_bg.wasm",
-        "node": "./noop.js"
+        "node": "./pkg/node/noop.js"
       }
     },
     "devDependencies": {
