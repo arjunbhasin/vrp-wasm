@@ -1,0 +1,29 @@
+{
+    "name": "vrp-cli",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+      "build": "npm run build:browser && npm run build:node",
+      "build:browser": "wasm-pack build --target web --out-dir ./build/browser && rimraf ./build/browser/package.json",
+      "build:node": "wasm-pack build --target nodejs --out-dir ./build/node && rimraf ./build/node/package.json"
+    },
+    "sideEffects": false,
+    "files": [
+      "build"
+    ],
+    "types": "./build/browser/vrp_cli.d.ts",
+    "exports": {
+      ".": {
+        "browser": "./build/browser/vrp_cli.js",
+        "node": "./build/node/vrp_cli.js"
+      },
+      "./binary.wasm": {
+        "browser": "./build/browser/vrp_cli_bg.wasm",
+        "node": "./noop.js"
+      }
+    },
+    "devDependencies": {
+      "rimraf": "^3.0.2"
+    }
+  }
+  
